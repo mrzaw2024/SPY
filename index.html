@@ -332,6 +332,50 @@ a:focus-visible{
 }
 
 /* =========================
+   ADS
+========================= */
+
+.ad-zone{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:6px 0 2px;
+    min-height:50px;
+    overflow:hidden;
+}
+
+.ad-mobile{
+    display:flex;
+    justify-content:center;
+}
+
+.ad-leader{
+    display:none;
+}
+
+.ad-content{
+    display:flex;
+    justify-content:center;
+    padding:4px 0 14px;
+}
+
+@media(min-width:800px){
+
+    .ad-mobile{
+        display:none;
+    }
+
+    .ad-leader{
+        display:flex;
+        justify-content:center;
+    }
+
+    .ad-zone{
+        min-height:90px;
+    }
+}
+
+/* =========================
    CATEGORY
 ========================= */
 
@@ -1164,12 +1208,60 @@ a:focus-visible{
         </header>
 
 
+        <!-- AD ZONE: 728x90 desktop / 320x50 mobile -->
+
+        <div class="ad-zone">
+
+            <div class="ad-mobile">
+                <script>
+                  atOptions = {
+                    'key' : '69a0e49eebce28a894ab6d74a7360514',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/69a0e49eebce28a894ab6d74a7360514/invoke.js"></script>
+            </div>
+
+            <div class="ad-leader">
+                <script>
+                  atOptions = {
+                    'key' : '41aaecb67cf16f753f5bf01caebae61b',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/41aaecb67cf16f753f5bf01caebae61b/invoke.js"></script>
+            </div>
+
+        </div>
+
+
         <!-- CATEGORIES (auto-built from sheet data) -->
 
         <div class="categories" id="categories"></div>
 
 
         <section class="content">
+
+            <!-- AD: 300x250 -->
+
+            <div class="ad-content">
+                <script>
+                  atOptions = {
+                    'key' : 'c5ba566bcbba67d5ee13f635974c4713',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/c5ba566bcbba67d5ee13f635974c4713/invoke.js"></script>
+            </div>
 
             <h2 class="section-title" id="homeTitle">
                 Trending
@@ -1269,22 +1361,6 @@ a:focus-visible{
             </h1>
 
             <div class="detail-actions">
-
-                <a
-                    id="detailOpenLink"
-                    class="external-btn"
-                    href="#"
-                    target="_blank"
-                    rel="noopener">
-
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
-                        <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
-                    </svg>
-
-                    Open Link
-
-                </a>
 
                 <button
                     id="detailCopyLink"
@@ -2344,9 +2420,6 @@ function openDetail(id){
     const iframe =
         document.getElementById("detailIframe");
 
-    const openLink =
-        document.getElementById("detailOpenLink");
-
     const copyBtn =
         document.getElementById("detailCopyLink");
 
@@ -2375,19 +2448,11 @@ function openDetail(id){
             const clean =
                 normalizeUrl(url);
 
-            openLink.href = clean;
-
-            openLink.style.display = "inline-flex";
-
             currentDetailLink = clean;
 
             copyBtn.style.display = "inline-flex";
 
         }else{
-
-            openLink.href = "#";
-
-            openLink.style.display = "none";
 
             currentDetailLink = "";
 
