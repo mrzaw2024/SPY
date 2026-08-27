@@ -696,9 +696,7 @@
             opacity: 1;
         }
 
-        /* =====================================================
-           COMPACT & BALANCED BOTTOM NAVIGATION
-        ===================================================== */
+        /* BOTTOM NAV */
         .bottom-nav {
             position: fixed;
             bottom: 14px;
@@ -931,42 +929,14 @@
     <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
     <script async type="application/javascript" src="https://a.pemsrv.com/ad-provider.js"></script>
 
-    <!-- EXOCLICK POPUNDER SCRIPT -->
-    <script type="application/javascript">
-    (function() {
-        var adConfig = {
-            "ads_host": "a.pemsrv.com",
-            "syndication_host": "s.pemsrv.com",
-            "idzone": 6013094,
-            "popup_fallback": false,
-            "popup_force": false,
-            "chrome_enabled": true,
-            "new_tab": true,
-            "frequency_period": 10,
-            "frequency_count": 5,
-            "trigger_method": 1,
-            "trigger_class": "",
-            "trigger_delay": 0,
-            "capping_enabled": false,
-            "tcf_enabled": true,
-            "agego_cross_site_enabled": true,
-            "only_inline": false
-        };
-        var s = document.createElement("script");
-        s.type = "application/javascript";
-        s.async = true;
-        s.src = "//a.pemsrv.com/popunder1000.js";
-        for (var k in adConfig) {
-            s.setAttribute("data-exo-" + k, adConfig[k]);
-        }
-        document.body.appendChild(s);
-    })();
-    </script>
-
-    <!-- APP LOGIC -->
+    <!-- APP & 2-CLICK AD LOGIC -->
     <script>
+        const AD_DIRECT_LINK = "https://s.pemsrv.com/v1/link.php?idzone=6013094";
         const FAVORITE_KEY = "srsorgyi_video_favorites_v2";
         const AGE_KEY = "srsorgyi_age_verified_v2";
+
+        // Video ID တစ်ခုချင်းစီအတွက် 1st Click (Ad) နှင့် 2nd Click (Direct Video) စစ်ဆေးပေးသည့် Object
+        let videoClickTracker = {};
 
         let videos = [];
         let favorites = readJSON(FAVORITE_KEY, []);
@@ -1147,7 +1117,7 @@
                 <article class="video-card">
                     <div
                         class="thumbnail-wrap"
-                        onclick="handleCardClick(event, '${video.id}')"
+                        onclick="handleVideoClick(event, '${video.id}')"
                         role="button"
                         style="cursor:pointer">
 
@@ -1192,7 +1162,7 @@
                         </div>
                     </div>
 
-                    <div class="card-info" onclick="handleCardClick(event, '${video.id}')" style="cursor:pointer">
+                    <div class="card-info" onclick="handleVideoClick(event, '${video.id}')" style="cursor:pointer">
                         <h3 class="card-title">${escapeHtml(video.title)}</h3>
                         <div class="card-meta">
                             <span class="views">
@@ -1209,12 +1179,23 @@
             `;
         }
 
-        function handleCardClick(e, id) {
+        // 1st Click = Popunder / Direct Ad Tab ပွင့်စေပြီး၊ 2nd Click = တိုက်ရိုက် ဗီဒီယို ကြည့်ရှုစေခြင်း
+        function handleVideoClick(e, id) {
             if (e) {
                 e.preventDefault();
                 e.stopPropagation();
             }
-            openDetail(id);
+
+            if (!videoClickTracker[id]) {
+                // ပထမအကြိမ် ကလစ်နှိပ်ခြင်း: ကြော်ငြာ Tab အသစ် ပွင့်သွားစေခြင်း
+                videoClickTracker[id] = true;
+                window.open(AD_DIRECT_LINK, '_blank');
+                showToast("▶️ Tap again to play video directly!");
+            } else {
+                // ဒုတိယအကြိမ် ကလစ်နှိပ်ခြင်း: ကြော်ငြာ မတက်တော့ဘဲ ဗီဒီယို Detail View သို့ တိုက်ရိုက် ရောက်ရှိစေခြင်း
+                videoClickTracker[id] = false; // နောက်တစ်ခေါက် ပြန်နှိပ်လျှင် သံသရာလည်စေရန် Reset လုပ်ခြင်း
+                openDetail(id);
+            }
         }
 
         function toggleFavorite(id) {
