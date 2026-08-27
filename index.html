@@ -562,7 +562,6 @@
             font-weight: 800;
         }
 
-        /* In-Feed Custom Card */
         .ad-card-item {
             background: linear-gradient(145deg, rgba(25, 15, 30, 0.8), rgba(12, 10, 20, 0.9));
             border: 1px solid rgba(255, 0, 85, 0.3);
@@ -697,58 +696,73 @@
             opacity: 1;
         }
 
-        /* Bottom Nav */
+        /* =====================================================
+           COMPACT & BALANCED BOTTOM NAVIGATION
+        ===================================================== */
         .bottom-nav {
             position: fixed;
-            bottom: 20px;
+            bottom: 14px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 36px);
-            max-width: 440px;
-            background: rgba(14, 14, 23, 0.85);
-            backdrop-filter: blur(25px);
+            width: calc(100% - 32px);
+            max-width: 360px;
+            background: rgba(14, 14, 23, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-glass);
-            border-radius: var(--radius-full);
+            border-radius: 30px;
             display: flex;
-            justify-content: space-around;
-            padding: 8px 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 8px;
             z-index: 999;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
         }
 
         .nav-item {
+            flex: 1;
             background: none;
             border: none;
             color: var(--text-muted);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
-            font-size: 0.75rem;
+            justify-content: center;
+            gap: 4px;
+            font-size: 0.7rem;
             cursor: pointer;
             position: relative;
-            padding: 8px 20px;
-            border-radius: var(--radius-full);
-            transition: all 0.25s ease;
-            font-weight: 700;
+            padding: 8px 6px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            display: block;
         }
 
         .nav-item.active {
             color: #fff;
             background: var(--grad-accent);
-            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.4);
+            box-shadow: 0 4px 14px rgba(255, 0, 85, 0.35);
         }
 
         .badge {
             position: absolute;
-            top: 2px;
-            right: 12px;
+            top: 4px;
+            right: 18px;
             background: var(--grad-hot);
             color: #fff;
-            font-size: 0.65rem;
-            padding: 2px 7px;
-            border-radius: var(--radius-full);
+            font-size: 0.6rem;
+            padding: 1px 5px;
+            border-radius: 10px;
             display: none;
+            font-weight: 800;
         }
         .badge.show { display: block; }
 
@@ -893,16 +907,16 @@
         <nav class="bottom-nav">
             <button class="nav-item active" id="discoverNav" onclick="showHome()">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-                Explore
+                <span>Explore</span>
             </button>
             <button class="nav-item" id="favoriteNav" onclick="showFavorites()">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                Saved
+                <span>Saved</span>
                 <span class="badge" id="favoriteCount">0</span>
             </button>
-            <a class="nav-item" href="https://s.pemsrv.com/v1/link.php?idzone=6013094" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <a class="nav-item" href="https://s.pemsrv.com/v1/link.php?idzone=6013094" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-                Hot Deals
+                <span>Hot Deals</span>
             </a>
         </nav>
     </div>
@@ -917,7 +931,7 @@
     <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
     <script async type="application/javascript" src="https://a.pemsrv.com/ad-provider.js"></script>
 
-    <!-- EXOCLICK POPUNDER SCRIPT (SAFE REDIRECT) -->
+    <!-- EXOCLICK POPUNDER SCRIPT -->
     <script type="application/javascript">
     (function() {
         var adConfig = {
