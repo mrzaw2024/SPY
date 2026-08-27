@@ -3,68 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORN-XMM</title>
+    <title>SrSorGyi.Site - Premium Entertainment</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* =====================================================
-           GLOBAL & RESET CSS
+           ADVANCED CYBERPUNK/MODERN DARK UI VARIABLES
         ===================================================== */
         :root {
-            --bg-color: #0c0c12;
-            --card-bg: #16161f;
-            --card-bg-2: #1c1c27;
-            --accent-color: #ff2a5f;
-            --accent-hover: #ff4574;
-            --accent-2: #ff7a59;
-            --grad-accent: linear-gradient(135deg, #ff2a5f 0%, #ff7a59 100%);
-            --text-main: #f1f1f5;
-            --text-muted: #8e8e9e;
-            --border-color: #26263a;
-            --border-strong: rgba(255,42,95,.35);
-            --shadow-card: 0 6px 22px rgba(0,0,0,.4);
-            --shadow-hover: 0 16px 44px rgba(255,42,95,.24);
-            --glow: 0 0 0 1px rgba(255,42,95,.25), 0 8px 30px rgba(255,42,95,.2);
-            --radius: 14px;
-            --radius-lg: 22px;
+            --bg-base: #06060a;
+            --bg-surface: #0e0e17;
+            --bg-card: rgba(18, 18, 28, 0.7);
+            --bg-card-hover: rgba(28, 28, 44, 0.85);
+            --accent-primary: #ff0055;
+            --accent-secondary: #7928ca;
+            --accent-cyan: #00f2fe;
+            --grad-brand: linear-gradient(135deg, #ff0055 0%, #7928ca 50%, #00f2fe 100%);
+            --grad-hot: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+            --grad-accent: linear-gradient(135deg, #ff0055 0%, #ff5252 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(255, 0, 85, 0.3);
+            --glow-primary: 0 0 25px rgba(255, 0, 85, 0.35);
+            --glow-cyan: 0 0 20px rgba(0, 242, 254, 0.35);
+            --blur-val: 20px;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         ::-webkit-scrollbar {
-            width: 9px;
-            height: 9px;
+            width: 8px;
+            height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: var(--bg-color);
+            background: var(--bg-base);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 12px;
+            background: #1e1e2f;
+            border-radius: var(--radius-full);
+            border: 2px solid var(--bg-base);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-color);
+            background: var(--accent-primary);
         }
 
         ::selection {
-            background: var(--accent-color);
+            background: var(--accent-primary);
             color: #fff;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            padding-bottom: 110px;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            padding-bottom: 120px;
             overflow-x: hidden;
             background-image:
-                radial-gradient(1000px 500px at 100% -10%, rgba(255,42,95,.10) 0%, transparent 60%),
-                radial-gradient(800px 500px at -10% 15%, rgba(255,122,89,.08) 0%, transparent 55%);
+                radial-gradient(at 0% 0%, rgba(255, 0, 85, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(121, 40, 202, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(0, 242, 254, 0.08) 0px, transparent 50%);
             background-attachment: fixed;
             -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255,0,85,0.06) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* =====================================================
+           SIDEBAR AD SKYSCRAPERS (160x600 Desktop)
+        ===================================================== */
+        .sidebar-ad {
+            display: none;
+            position: fixed;
+            top: 90px;
+            z-index: 90;
+            width: 160px;
+            height: 600px;
+        }
+
+        .sidebar-ad-left {
+            left: 10px;
+        }
+
+        .sidebar-ad-right {
+            right: 10px;
+        }
+
+        @media (min-width: 1720px) {
+            .sidebar-ad {
+                display: block;
+            }
         }
 
         /* =====================================================
@@ -72,13 +122,11 @@
         ===================================================== */
         .age-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(8, 8, 14, 0.92);
-            backdrop-filter: blur(14px);
-            z-index: 9999;
+            inset: 0;
+            background: rgba(4, 4, 8, 0.94);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 99999;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -86,170 +134,209 @@
         }
 
         .age-card {
-            background: linear-gradient(160deg, var(--card-bg-2) 0%, var(--card-bg) 100%);
-            border: 1px solid var(--border-strong);
-            padding: 36px 32px;
-            border-radius: 22px;
+            background: linear-gradient(145deg, rgba(24, 24, 38, 0.9) 0%, rgba(14, 14, 22, 0.95) 100%);
+            border: 1px solid var(--border-glow);
+            padding: 40px 32px;
+            border-radius: var(--radius-lg);
             text-align: center;
-            max-width: 400px;
+            max-width: 420px;
             width: 100%;
-            box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(255,42,95,.12);
-            animation: popIn .5s cubic-bezier(.2,.8,.3,1) both;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.8), var(--glow-primary);
+            animation: zoomModal .4s cubic-bezier(0.16, 1, 0.3, 1) both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes zoomModal {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .age-badge {
-            width: 68px;
-            height: 68px;
-            margin: 0 auto 18px;
-            border-radius: 20px;
-            background: var(--grad-accent);
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            border-radius: 22px;
+            background: var(--grad-brand);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            box-shadow: 0 12px 30px rgba(255,42,95,.4);
+            box-shadow: var(--glow-primary);
         }
 
         .age-badge svg {
-            width: 30px;
-            height: 30px;
-        }
-
-        @keyframes popIn {
-            from { opacity: 0; transform: translateY(26px) scale(.96); }
-            to { opacity: 1; transform: none; }
+            width: 34px;
+            height: 34px;
         }
 
         .age-card h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
             margin-bottom: 12px;
-            color: var(--accent-color);
-            letter-spacing: -.3px;
+            background: var(--grad-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
         .age-card p {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            margin-bottom: 26px;
-            line-height: 1.5;
+            margin-bottom: 28px;
+            line-height: 1.6;
         }
 
         .age-btns {
             display: flex;
-            gap: 12px;
+            gap: 14px;
         }
 
         .btn {
             flex: 1;
-            padding: 14px 12px;
+            padding: 14px 18px;
             border: none;
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             font-weight: 700;
+            font-size: 0.95rem;
             cursor: pointer;
-            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .btn-primary {
             background: var(--grad-accent);
             color: #fff;
-            box-shadow: 0 10px 24px rgba(255,42,95,.35);
+            box-shadow: 0 10px 25px rgba(255, 0, 85, 0.4);
         }
 
         .btn-primary:hover {
-            background: var(--grad-accent);
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px rgba(255,42,95,.45);
+            box-shadow: 0 14px 35px rgba(255, 0, 85, 0.6);
         }
 
         .btn-secondary {
-            background: var(--border-color);
-            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-glass);
         }
 
         .btn-secondary:hover {
-            background: #32324a;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
             transform: translateY(-2px);
         }
 
         /* =====================================================
-           HEADER & NAVIGATION
+           HEADER & NAVIGATION BAR
         ===================================================== */
         header {
             position: sticky;
             top: 0;
-            background: rgba(12, 12, 18, 0.78);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(38, 38, 58, .6);
-            padding: 12px 20px;
+            background: rgba(6, 6, 10, 0.75);
+            backdrop-filter: blur(var(--blur-val));
+            -webkit-backdrop-filter: blur(var(--blur-val));
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-glass);
+            padding: 14px 20px;
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
+            gap: 20px;
         }
 
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: transparent;
-            background: var(--grad-accent);
-            -webkit-background-clip: text;
-            background-clip: text;
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
-            letter-spacing: -0.5px;
-            white-space: nowrap;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: var(--grad-brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow-primary);
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        .logo-text {
+            font-size: 1.45rem;
+            font-weight: 900;
+            letter-spacing: -0.8px;
+            background: var(--grad-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
         .search-box {
             flex: 1;
-            max-width: 400px;
+            max-width: 460px;
             position: relative;
         }
 
         .search-box input {
             width: 100%;
-            padding: 11px 16px 11px 40px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            color: var(--text-main);
+            padding: 12px 20px 12px 46px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
             outline: none;
-            font-size: 0.9rem;
-            transition: border-color .18s, box-shadow .18s;
+            font-size: 0.92rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: all 0.25s ease;
         }
 
         .search-box input:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 4px rgba(255,42,95,.12);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 4px rgba(255, 0, 85, 0.18), var(--glow-primary);
         }
 
         .search-box::before {
             content: "";
             position: absolute;
-            left: 14px;
+            left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             background: var(--text-muted);
-            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>') center/contain no-repeat;
-            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>') center/contain no-repeat;
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>') center/contain no-repeat;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>') center/contain no-repeat;
             pointer-events: none;
         }
 
-        /* Category Scroll */
+        /* Categories Ribbon */
         .categories-wrapper {
-            max-width: 1200px;
-            margin: 16px auto 0;
-            padding: 4px 12px;
+            max-width: 1400px;
+            margin: 20px auto 0;
+            padding: 4px 16px;
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: none;
+            display: flex;
+            gap: 10px;
         }
 
         .categories-wrapper::-webkit-scrollbar {
@@ -257,97 +344,108 @@
         }
 
         .category {
-            display: inline-block;
-            padding: 8px 18px;
-            margin-right: 8px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 22px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            font-size: 0.88rem;
             cursor: pointer;
-            transition: all .18s ease;
+            transition: all 0.25s ease;
             font-weight: 600;
+            backdrop-filter: blur(10px);
         }
 
         .category.active, .category:hover {
             background: var(--grad-accent);
             color: #fff;
             border-color: transparent;
-            box-shadow: 0 6px 18px rgba(255,42,95,.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 0, 85, 0.35);
         }
 
         /* =====================================================
-           MAIN LAYOUT & CARDS (Updated for 2 Columns Layout)
+           LAYOUT & ULTRA-MODERN VIDEO CARDS
         ===================================================== */
         main {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 12px;
+            max-width: 1400px;
+            margin: 24px auto;
+            padding: 0 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
         .section-title {
-            font-size: 1.15rem;
-            margin-bottom: 14px;
+            font-size: 1.35rem;
             font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 10px;
-            letter-spacing: -.2px;
+            gap: 12px;
+            letter-spacing: -0.4px;
         }
 
         .section-title::before {
             content: "";
-            width: 4px;
-            height: 18px;
-            border-radius: 8px;
-            background: var(--grad-accent);
-            box-shadow: 0 3px 10px rgba(255,42,95,.4);
+            width: 5px;
+            height: 22px;
+            border-radius: var(--radius-full);
+            background: var(--grad-brand);
+            box-shadow: var(--glow-primary);
         }
 
         .video-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 16px;
         }
 
         @media (min-width: 768px) {
             .video-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 22px;
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .video-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
+                gap: 24px;
             }
         }
 
         .video-card {
-            background: linear-gradient(165deg, var(--card-bg-2) 0%, var(--card-bg) 100%);
-            border-radius: 16px;
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-glass);
             display: flex;
             flex-direction: column;
-            transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-            animation: fadeUp .4s ease both;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            backdrop-filter: blur(12px);
         }
 
         .video-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-strong);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 0, 85, 0.2);
+            background: var(--bg-card-hover);
         }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(14px); }
-            to { opacity: 1; transform: none; }
-        }
-
-        .video-card:nth-child(2n) { animation-delay: .05s; }
-        .video-card:nth-child(3n) { animation-delay: .1s; }
-        .video-card:nth-child(4n) { animation-delay: .15s; }
 
         .thumbnail-wrap {
             position: relative;
             width: 100%;
-            padding-top: 56.25%;
+            padding-top: 58%;
             background: #000;
             overflow: hidden;
         }
@@ -359,34 +457,34 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform .45s ease;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .video-card:hover .thumbnail {
-            transform: scale(1.06);
+            transform: scale(1.08);
         }
 
         .thumb-shade {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, transparent 40%, rgba(0,0,0,.75) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 40%, rgba(6, 6, 10, 0.85) 100%);
         }
 
         .play-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(.85);
-            width: 42px;
-            height: 42px;
+            transform: translate(-50%, -50%) scale(0.7);
+            width: 50px;
+            height: 50px;
             background: var(--grad-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: .25s ease;
-            box-shadow: 0 8px 22px rgba(255,42,95,.5);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.6);
         }
 
         .thumbnail-wrap:hover .play-overlay {
@@ -395,17 +493,17 @@
         }
 
         .play-overlay svg {
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             fill: #fff;
-            margin-left: 2px;
+            margin-left: 3px;
         }
 
         .card-top {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            right: 8px;
+            top: 10px;
+            left: 10px;
+            right: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -413,156 +511,183 @@
         }
 
         .link-badge {
-            background: rgba(12, 12, 18, 0.7);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(6, 6, 10, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
-            font-size: 0.65rem;
-            padding: 5px 9px;
-            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 4px;
-            transition: background .15s, border-color .15s;
+            gap: 5px;
+            transition: all 0.2s ease;
         }
 
         .link-badge:hover {
             background: var(--grad-accent);
             border-color: transparent;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4);
         }
 
         .link-badge svg {
-            width: 11px;
-            height: 11px;
+            width: 12px;
+            height: 12px;
         }
 
         .favorite-btn {
-            background: rgba(12, 12, 18, 0.7);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(6, 6, 10, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
-            width: 30px;
-            height: 30px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background .18s, transform .18s, color .18s;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .favorite-btn:hover {
-            transform: scale(1.12);
+            transform: scale(1.15);
+            border-color: var(--accent-primary);
         }
 
         .favorite-btn.active {
-            color: var(--accent-color);
-            background: rgba(255,42,95,.18);
-            border-color: var(--accent-color);
+            color: var(--accent-primary);
+            background: rgba(255, 0, 85, 0.2);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
         }
 
         .duration {
             position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(4px);
+            bottom: 10px;
+            right: 10px;
+            background: rgba(4, 4, 8, 0.85);
+            backdrop-filter: blur(8px);
             color: #fff;
-            font-size: 0.68rem;
-            padding: 3px 6px;
+            font-size: 0.72rem;
+            padding: 4px 8px;
             border-radius: 6px;
-            font-weight: 700;
-            letter-spacing: .3px;
+            font-weight: 800;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .card-info {
-            padding: 10px 12px 12px;
+            padding: 14px 16px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
             flex: 1;
         }
 
         .card-title {
-            font-size: 0.8rem;
-            line-height: 1.3;
-            font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            font-weight: 700;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            color: var(--text-main);
+            color: var(--text-primary);
         }
 
         .card-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             margin-top: auto;
+            font-weight: 600;
         }
 
         .views {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
 
         .views svg {
-            width: 11px;
-            height: 11px;
-            color: var(--accent-2);
+            width: 14px;
+            height: 14px;
+            color: var(--accent-cyan);
         }
 
         .quality {
-            background: rgba(255,42,95,.12);
-            border: 1px solid rgba(255,42,95,.25);
-            color: var(--accent-hover);
-            padding: 2px 6px;
-            border-radius: 5px;
-            font-size: 0.62rem;
-            font-weight: 700;
+            background: rgba(255, 0, 85, 0.15);
+            border: 1px solid rgba(255, 0, 85, 0.3);
+            color: #ff3377;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        /* In-feed Custom Ad Card */
+        .ad-card-item {
+            background: linear-gradient(145deg, rgba(25, 15, 30, 0.8), rgba(12, 10, 20, 0.9));
+            border: 1px solid rgba(255, 0, 85, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+            padding: 12px;
+            box-shadow: inset 0 0 20px rgba(255,0,85,0.1);
         }
 
         /* =====================================================
-           DETAIL PAGE / PLAYER VIEW
+           DETAIL PAGE & PLAYER VIEW
         ===================================================== */
         .detail-page {
             display: none;
+            animation: fadeIn 0.3s ease both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .back-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 18px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: var(--radius-full);
             cursor: pointer;
-            margin-bottom: 18px;
+            margin-bottom: 24px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            transition: border-color .18s, background .18s, transform .18s;
+            gap: 10px;
+            font-weight: 700;
+            transition: all 0.2s ease;
         }
 
         .back-btn:hover {
-            border-color: var(--accent-color);
-            background: var(--card-bg-2);
-            transform: translateX(-3px);
+            border-color: var(--accent-primary);
+            background: rgba(255, 0, 85, 0.15);
+            transform: translateX(-4px);
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.25);
         }
 
         .player-container {
             width: 100%;
             aspect-ratio: 16 / 9;
             background: #000;
-            border-radius: 18px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            margin-bottom: 18px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 18px 50px rgba(0,0,0,.55);
+            margin-bottom: 24px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), var(--glow-primary);
         }
 
         .player-container iframe, .player-container video {
@@ -571,64 +696,64 @@
             border: none;
         }
 
+        .detail-info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+        }
+
         .detail-actions {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 14px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid var(--border-color);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-glass);
+            flex-wrap: wrap;
+            gap: 14px;
         }
 
         .share-btn {
-            background: var(--grad-accent);
+            background: var(--grad-brand);
             color: #fff;
             border: none;
-            padding: 12px 22px;
-            border-radius: 12px;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
             cursor: pointer;
-            font-weight: 700;
-            transition: transform .18s, box-shadow .18s;
-            box-shadow: 0 8px 22px rgba(255,42,95,.3);
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 25px rgba(255, 0, 85, 0.35);
         }
 
         .share-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(255,42,95,.4);
+            box-shadow: 0 15px 35px rgba(255, 0, 85, 0.55);
         }
 
-        /* Empty State & Toast */
-        .empty {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-        }
-
-        .empty h3 {
-            color: var(--text-main);
-            margin-bottom: 6px;
-            font-size: 1.05rem;
-        }
-
+        /* Loading Spinner */
         .loading-box {
             grid-column: 1 / -1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 14px;
-            padding: 70px 20px;
-            color: var(--text-muted);
-            font-weight: 600;
+            gap: 18px;
+            padding: 90px 20px;
+            color: var(--text-secondary);
+            font-weight: 700;
         }
 
         .spinner {
-            width: 42px;
-            height: 42px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent-color);
-            animation: spin .8s linear infinite;
+            border: 3px solid rgba(255, 0, 85, 0.15);
+            border-top-color: var(--accent-primary);
+            border-right-color: var(--accent-cyan);
+            animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
         }
 
         @keyframes spin {
@@ -637,20 +762,22 @@
 
         .toast {
             position: fixed;
-            bottom: 90px;
+            bottom: 100px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: var(--grad-accent);
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.95), rgba(121, 40, 202, 0.95));
+            backdrop-filter: blur(15px);
             color: #fff;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            box-shadow: 0 10px 30px rgba(255,42,95,.4);
-            transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), var(--glow-primary);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10000;
             opacity: 0;
             pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .toast.show {
@@ -658,24 +785,24 @@
             opacity: 1;
         }
 
-        /* Bottom Nav */
+        /* Floating Modern Bottom Navigation */
         .bottom-nav {
             position: fixed;
-            bottom: 14px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 28px);
-            max-width: 380px;
-            background: rgba(22, 22, 31, 0.85);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,.08);
-            border-radius: 24px;
+            width: calc(100% - 36px);
+            max-width: 440px;
+            background: rgba(14, 14, 23, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-full);
             display: flex;
             justify-content: space-around;
-            padding: 8px;
-            z-index: 100;
-            box-shadow: 0 18px 45px rgba(0,0,0,.55);
+            padding: 8px 12px;
+            z-index: 999;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 0, 85, 0.15);
         }
 
         .nav-item {
@@ -685,38 +812,45 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
-            font-size: 0.72rem;
+            gap: 5px;
+            font-size: 0.75rem;
             cursor: pointer;
             position: relative;
-            padding: 8px 18px;
-            border-radius: 16px;
-            transition: color .18s, background .18s;
-            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            transition: all 0.25s ease;
+            font-weight: 700;
         }
 
         .nav-item svg {
-            width: 21px;
-            height: 21px;
+            width: 22px;
+            height: 22px;
             stroke: currentColor;
+            transition: transform 0.2s;
+        }
+
+        .nav-item:hover svg {
+            transform: translateY(-2px);
         }
 
         .nav-item.active {
-            color: var(--accent-color);
-            background: rgba(255,42,95,.12);
+            color: #fff;
+            background: var(--grad-accent);
+            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.4);
         }
 
         .badge {
             position: absolute;
-            top: 3px;
-            right: 14px;
-            background: var(--grad-accent);
+            top: 2px;
+            right: 12px;
+            background: var(--grad-hot);
             color: #fff;
             font-size: 0.65rem;
-            padding: 2px 6px;
-            border-radius: 10px;
+            padding: 2px 7px;
+            border-radius: var(--radius-full);
             display: none;
-            box-shadow: 0 3px 10px rgba(255,42,95,.5);
+            box-shadow: 0 3px 10px rgba(255, 8, 68, 0.6);
+            font-weight: 800;
         }
 
         .badge.show {
@@ -724,136 +858,269 @@
         }
 
         /* =====================================================
-           AD SLOTS
+           ADVANCED MULTI-AD CONTAINER STYLES
         ===================================================== */
-        .ad-slot {
+        .ad-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            margin: 12px auto;
+            justify-content: center;
+            margin: 22px auto;
+            position: relative;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px dashed rgba(255, 255, 255, 0.08);
+            max-width: 100%;
             overflow: hidden;
         }
 
-        .ad-slot iframe,
-        .ad-slot script {
-            max-width: 100%;
+        .ad-label {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 800;
         }
 
-        .ad-desktop {
-            display: none;
-        }
+        .ad-desktop-728 { display: none; }
+        @media (min-width: 768px) { .ad-desktop-728 { display: flex; } }
 
-        @media (min-width: 768px) {
-            .ad-desktop {
-                display: flex;
-            }
-        }
+        .ad-tablet-468 { display: none; }
+        @media (min-width: 480px) and (max-width: 767px) { .ad-tablet-468 { display: flex; } }
 
-        .ad-mobile {
-            display: flex;
-        }
+        .ad-mobile-320 { display: flex; }
+        @media (min-width: 480px) { .ad-mobile-320 { display: none; } }
 
-        @media (min-width: 768px) {
-            .ad-mobile {
-                display: none;
-            }
-        }
-
-        .ad-native-wrap {
+        .ad-native-box {
             width: 100%;
-            margin: 20px auto;
-            overflow: hidden;
+            margin: 30px auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            backdrop-filter: blur(12px);
         }
 
-        .ad-native-wrap iframe,
-        .ad-native-wrap script {
-            max-width: 100%;
-        }
-
-        .ad-native-wrap #container-8f8dfc620b1c43585e210e9b1a8d16ed {
+        .ad-native-box #container-249097de89499cbc979a260b97e17908 {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 14px;
+        }
+
+        /* Dual Box Ads Area */
+        .ad-dual-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        @media (min-width: 680px) {
+            .ad-dual-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- AGE VERIFICATION OVERLAY -->
+    <div class="ambient-glow"></div>
+
+    <!-- SIDEBAR 160x600 DESKTOP ADS -->
+    <aside class="sidebar-ad sidebar-ad-left">
+        <script>
+            atOptions = {
+                'key' : '58e371630019c8be906d1f0f2e72a30e',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+            };
+        </script>
+        <script src="https://www.highrevenueformat.com/58e371630019c8be906d1f0f2e72a30e/invoke.js"></script>
+    </aside>
+
+    <aside class="sidebar-ad sidebar-ad-right">
+        <script>
+            atOptions = {
+                'key' : '58e371630019c8be906d1f0f2e72a30e',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+            };
+        </script>
+        <script src="https://www.highrevenueformat.com/58e371630019c8be906d1f0f2e72a30e/invoke.js"></script>
+    </aside>
+
+    <!-- AGE VERIFICATION MODAL -->
     <div id="ageOverlay" class="age-overlay">
         <div class="age-card">
             <div class="age-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2l7 3v6c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V5z"/>
                     <path d="M9 12l2 2 4-4"/>
                 </svg>
             </div>
             <h2>18+ Verification</h2>
-            <p>This site contains adult content. You must be at least 18 years old to enter.</p>
+            <p>Welcome to <strong>SrSorGyi.Site</strong>. This website provides adult multimedia content. You must confirm that you are at least 18 years old to proceed.</p>
             <div class="age-btns">
-                <button class="btn btn-secondary age-decline" onclick="declineAge()">Exit</button>
-                <button class="btn btn-primary" onclick="agreeAge()">I am 18 or older</button>
+                <button class="btn btn-secondary" onclick="declineAge()">Exit</button>
+                <button class="btn btn-primary" onclick="agreeAge()">Enter Site (18+)</button>
             </div>
         </div>
     </div>
 
-    <!-- MAIN APP STRUCTURE -->
+    <!-- MAIN APP CONTAINER -->
     <div id="app" style="display: none;">
         <header>
             <div class="header-container">
-                <a href="#" class="logo" onclick="showHome()">PORN-XMM</a>
+                <a href="#" class="logo-wrap" onclick="showHome()">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">SrSorGyi.Site</span>
+                </a>
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search videos...">
+                    <input type="text" id="searchInput" placeholder="Search premium videos...">
                 </div>
             </div>
         </header>
 
-        <div class="ad-slot ad-desktop">
+        <!-- TOP HEADER AD BANNERS (728x90, 468x60, 320x50) -->
+        <div class="ad-container ad-desktop-728">
+            <span class="ad-label">Sponsored Advertisement</span>
             <script>
                 atOptions = {
-                    'key' : '21fa32b76818b0611151f4a6bb8e3de2',
+                    'key' : '2d2afc9a71b9c9d06c46b0424c7754c4',
                     'format' : 'iframe',
                     'height' : 90,
                     'width' : 728,
                     'params' : {}
                 };
             </script>
-            <script src="https://www.highrevenueformat.com/21fa32b76818b0611151f4a6bb8e3de2/invoke.js"></script>
+            <script src="https://www.highrevenueformat.com/2d2afc9a71b9c9d06c46b0424c7754c4/invoke.js"></script>
         </div>
 
-        <div class="ad-slot ad-mobile">
+        <div class="ad-container ad-tablet-468">
+            <span class="ad-label">Sponsored Advertisement</span>
             <script>
                 atOptions = {
-                    'key' : '02a1fd0376101484294a83b94d6ac423',
+                    'key' : '44b42aa803ae24df13ec83cd7cfdf899',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://www.highrevenueformat.com/44b42aa803ae24df13ec83cd7cfdf899/invoke.js"></script>
+        </div>
+
+        <div class="ad-container ad-mobile-320">
+            <span class="ad-label">Sponsored Advertisement</span>
+            <script>
+                atOptions = {
+                    'key' : 'aa48ed0b475acb2c6c9761e41504c342',
                     'format' : 'iframe',
                     'height' : 50,
                     'width' : 320,
                     'params' : {}
                 };
             </script>
-            <script src="https://www.highrevenueformat.com/02a1fd0376101484294a83b94d6ac423/invoke.js"></script>
+            <script src="https://www.highrevenueformat.com/aa48ed0b475acb2c6c9761e41504c342/invoke.js"></script>
         </div>
 
-        <!-- DISCOVER / HOME PAGE -->
+        <!-- HOME / DISCOVER PAGE -->
         <div id="homePage">
             <div class="categories-wrapper" id="categories"></div>
             <main>
-                <h2 class="section-title" id="homeTitle">Asian</h2>
+                <div class="section-header-wrap">
+                    <h2 class="section-title" id="homeTitle">Asian</h2>
+                </div>
+                
+                <!-- Main Video Grid -->
                 <div class="video-grid" id="videoGrid"></div>
-            </main>
 
-            <div class="ad-native-wrap">
-                <script async="async" data-cfasync="false" src="https://pl30991667.profitableratecpmnetwork.com/8f8dfc620b1c43585e210e9b1a8d16ed/invoke.js"></script>
-                <div id="container-8f8dfc620b1c43585e210e9b1a8d16ed"></div>
-            </div>
+                <!-- DUAL BOX BANNER ADS (300x250 & 160x300) -->
+                <div class="ad-dual-grid">
+                    <div class="ad-container" style="margin:0;">
+                        <span class="ad-label">Recommended Media</span>
+                        <script>
+                            atOptions = {
+                                'key' : '44b5e52562d2cc9674bc5bce6c312de6',
+                                'format' : 'iframe',
+                                'height' : 250,
+                                'width' : 300,
+                                'params' : {}
+                            };
+                        </script>
+                        <script src="https://www.highrevenueformat.com/44b5e52562d2cc9674bc5bce6c312de6/invoke.js"></script>
+                    </div>
+
+                    <div class="ad-container" style="margin:0;">
+                        <span class="ad-label">Hot Content</span>
+                        <script>
+                            atOptions = {
+                                'key' : '70737118db188a2771d5dd8c83ad15ce',
+                                'format' : 'iframe',
+                                'height' : 300,
+                                'width' : 160,
+                                'params' : {}
+                            };
+                        </script>
+                        <script src="https://www.highrevenueformat.com/70737118db188a2771d5dd8c83ad15ce/invoke.js"></script>
+                    </div>
+                </div>
+
+                <!-- NATIVE BANNER ADS -->
+                <div class="ad-native-box">
+                    <span class="ad-label" style="display:block; text-align:center; margin-bottom:14px;">Recommended For You</span>
+                    <script async="async" data-cfasync="false" src="https://pl31042231.profitableratecpmnetwork.com/249097de89499cbc979a260b97e17908/invoke.js"></script>
+                    <div id="container-249097de89499cbc979a260b97e17908"></div>
+                </div>
+
+                <!-- BOTTOM 728x90 / 320x50 FOOTER AD -->
+                <div class="ad-container ad-desktop-728">
+                    <span class="ad-label">Special Offer</span>
+                    <script>
+                        atOptions = {
+                            'key' : '2d2afc9a71b9c9d06c46b0424c7754c4',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highrevenueformat.com/2d2afc9a71b9c9d06c46b0424c7754c4/invoke.js"></script>
+                </div>
+                <div class="ad-container ad-mobile-320">
+                    <span class="ad-label">Special Offer</span>
+                    <script>
+                        atOptions = {
+                            'key' : 'aa48ed0b475acb2c6c9761e41504c342',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highrevenueformat.com/aa48ed0b475acb2c6c9761e41504c342/invoke.js"></script>
+                </div>
+            </main>
         </div>
 
         <!-- FAVORITES PAGE -->
         <div id="favoritesPage" style="display: none;">
             <main>
-                <h2 class="section-title">My Saved Favorites</h2>
+                <div class="section-header-wrap">
+                    <h2 class="section-title">My Collection</h2>
+                </div>
                 <div class="video-grid" id="favoriteGrid"></div>
             </main>
         </div>
@@ -862,7 +1129,8 @@
         <div id="detailPage" class="detail-page">
             <main>
                 <button class="back-btn" onclick="closeDetail()">
-                    &larr; Back to Videos
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Catalog
                 </button>
                 
                 <div class="player-container">
@@ -870,44 +1138,67 @@
                     <video id="detailVideo" controls style="display: none;"></video>
                 </div>
 
-                <div class="ad-slot">
-                    <script>
-                        atOptions = {
-                            'key' : 'b4ce71c446b1f9601e82e772fef04d8a',
-                            'format' : 'iframe',
-                            'height' : 250,
-                            'width' : 300,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highrevenueformat.com/b4ce71c446b1f9601e82e772fef04d8a/invoke.js"></script>
+                <!-- PLAYER BOTTOM BANNER 468x60 / 300x250 -->
+                <div class="ad-dual-grid">
+                    <div class="ad-container" style="margin:0;">
+                        <span class="ad-label">Sponsored Media</span>
+                        <script>
+                            atOptions = {
+                                'key' : '44b5e52562d2cc9674bc5bce6c312de6',
+                                'format' : 'iframe',
+                                'height' : 250,
+                                'width' : 300,
+                                'params' : {}
+                            };
+                        </script>
+                        <script src="https://www.highrevenueformat.com/44b5e52562d2cc9674bc5bce6c312de6/invoke.js"></script>
+                    </div>
+
+                    <div class="ad-container" style="margin:0;">
+                        <span class="ad-label">Partner Links</span>
+                        <script>
+                            atOptions = {
+                                'key' : '44b42aa803ae24df13ec83cd7cfdf899',
+                                'format' : 'iframe',
+                                'height' : 60,
+                                'width' : 468,
+                                'params' : {}
+                            };
+                        </script>
+                        <script src="https://www.highrevenueformat.com/44b42aa803ae24df13ec83cd7cfdf899/invoke.js"></script>
+                    </div>
                 </div>
 
-                <h1 id="detailTitle" style="font-size: 1.1rem; margin-bottom: 8px;"></h1>
-                <p id="detailDescription" style="color: var(--text-muted); font-size: 0.85rem;"></p>
+                <div class="detail-info-card">
+                    <h1 id="detailTitle" style="font-size: 1.3rem; margin-bottom: 12px; font-weight: 800;"></h1>
+                    <p id="detailDescription" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;"></p>
 
-                <div class="detail-actions">
-                    <button class="share-btn" onclick="copyDetailLink()">Share Video Link</button>
+                    <div class="detail-actions">
+                        <button class="share-btn" onclick="copyDetailLink()">⚡ Share Video Link</button>
+                    </div>
                 </div>
 
-                <h2 class="section-title" style="margin-top: 30px;">Recommended Videos</h2>
+                <div class="section-header-wrap" style="margin-top: 40px;">
+                    <h2 class="section-title">Related Recommended</h2>
+                </div>
                 <div class="video-grid" id="recommendationGrid"></div>
             </main>
         </div>
 
-        <!-- BOTTOM NAVIGATION -->
+        <!-- FLOATING BOTTOM DOCK NAVIGATION -->
         <nav class="bottom-nav">
             <button class="nav-item active" id="discoverNav" onclick="showHome()">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-                Discover
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                Explore
             </button>
             <button class="nav-item" id="favoriteNav" onclick="showFavorites()">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                Favorites
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                Saved
                 <span class="badge" id="favoriteCount">0</span>
             </button>
-            <a class="nav-item" href="https://www.profitableratecpmnetwork.com/wxv642saw?key=dd9b003b7533ff3b1fb7ee371d1872ae" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            <!-- DIRECT SMARTLINK ADS -->
+            <a class="nav-item" href="https://www.profitableratecpmnetwork.com/qhm9r4iv?key=dadd2cbffd058778d59d1645da0a9a82" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
                 Hot Deals
             </a>
         </nav>
@@ -917,11 +1208,11 @@
     <div id="toast" class="toast"></div>
 
     <!-- =====================================================
-       JAVASCRIPT LOGIC
+       LOGIC JAVASCRIPT
     ===================================================== -->
     <script>
-        const FAVORITE_KEY = "general_video_favorites_v1";
-        const AGE_KEY = "general_video_age_verified_v1";
+        const FAVORITE_KEY = "srsorgyi_video_favorites_v2";
+        const AGE_KEY = "srsorgyi_age_verified_v2";
 
         let videos = [];
         let favorites = readJSON(FAVORITE_KEY, []);
@@ -929,7 +1220,7 @@
         let currentPage = 1;
         let isLoading = false;
         let currentDetailLink = "";
-        let categoryList = ["Asian", "Japanese", "Korean", "Myanmar", "HD"];
+        let categoryList = ["Asian", "Japanese", "Korean", "Myanmar", "HD", "Trending", "Exclusive"];
 
         document.addEventListener("DOMContentLoaded", () => {
             setupSearch();
@@ -964,7 +1255,7 @@
 
             const grid = document.getElementById("videoGrid");
             if (!isAppend) {
-                grid.innerHTML = `<div class="loading-box"><div class="spinner"></div><span>Loading videos...</span></div>`;
+                grid.innerHTML = `<div class="loading-box"><div class="spinner"></div><span>Loading Content...</span></div>`;
             }
 
             try {
@@ -976,7 +1267,7 @@
 
                 if (data.videos && data.videos.length > 0) {
                     const fetchedVideos = data.videos.map(item => {
-                        const simulatedViews = item.views || Math.floor(Math.random() * 600) + 50;
+                        const simulatedViews = item.views || Math.floor(Math.random() * 800) + 120;
                         const timestampDisplay = `${item.length_min}:${item.length_sec < 10 ? '0' + item.length_sec : item.length_sec}`;
                         
                         return {
@@ -985,7 +1276,7 @@
                             embed: item.embed,
                             thumbnail: item.default_thumb.src,
                             duration: timestampDisplay,
-                            quality: "UltraHD",
+                            quality: "4K UHD",
                             views: simulatedViews,
                             description: item.keywords || item.title
                         };
@@ -1001,16 +1292,16 @@
                 } else {
                     if (!isAppend) {
                         grid.innerHTML = `
-                            <div class="empty">
-                                <h3>No videos found</h3>
-                                <p>Try another search or category.</p>
+                            <div class="loading-box">
+                                <h3>No content found</h3>
+                                <p style="color:var(--text-muted)">Try another keyword or category.</p>
                             </div>`;
                     }
                 }
             } catch (error) {
                 console.error("API Fetch Error:", error);
                 if (!isAppend) {
-                    grid.innerHTML = `<div class="empty"><h3>Error loading videos.</h3></div>`;
+                    grid.innerHTML = `<div class="loading-box"><h3>Error fetching data. Check connection.</h3></div>`;
                 }
             } finally {
                 isLoading = false;
@@ -1060,7 +1351,7 @@
                 if (e.key === 'Enter') {
                     activeQuery = this.value.trim() || "asian";
                     currentPage = 1;
-                    document.getElementById("homeTitle").textContent = `Search: ${activeQuery}`;
+                    document.getElementById("homeTitle").textContent = `Query: ${activeQuery}`;
                     fetchEpornerVideos(activeQuery, currentPage, false);
                     this.blur();
                 }
@@ -1069,7 +1360,24 @@
 
         function renderVideos() {
             const grid = document.getElementById("videoGrid");
-            grid.innerHTML = videos.map(video => createCard(video)).join("");
+            let html = "";
+            videos.forEach((video, index) => {
+                html += createCard(video);
+                // Insert In-Feed Banner Ads every 6 cards
+                if ((index + 1) % 6 === 0) {
+                    html += `
+                        <article class="video-card ad-card-item">
+                            <span class="ad-label">Direct Ad Link</span>
+                            <a href="https://www.profitableratecpmnetwork.com/qhm9r4iv?key=dadd2cbffd058778d59d1645da0a9a82" target="_blank" rel="noopener" style="text-decoration:none; text-align:center;">
+                                <div style="font-size:0.95rem; font-weight:800; color:var(--accent-primary); margin-bottom:8px;">🔥 Special VIP Videos</div>
+                                <div style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:14px;">Watch Full Length HD Updates Without Limits</div>
+                                <button class="btn btn-primary" style="font-size:0.8rem; padding:8px 18px;">Click To Access</button>
+                            </a>
+                        </article>
+                    `;
+                }
+            });
+            grid.innerHTML = html;
         }
 
         function createCard(video) {
@@ -1101,9 +1409,9 @@
                         <div class="card-top">
                             <button
                                 class="link-badge"
-                                title="Copy link"
+                                title="Copy direct link"
                                 onclick="event.stopPropagation(); copyVideoLink(event, '${video.id}')">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
                                     <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
                                 </svg>
@@ -1112,9 +1420,9 @@
 
                             <button
                                 class="favorite-btn ${isFavorite ? "active" : ""}"
-                                title="Favorite"
+                                title="Save to Favorites"
                                 onclick="event.stopPropagation(); toggleFavorite('${video.id}')">
-                                <svg viewBox="0 0 24 24" fill="${isFavorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <svg viewBox="0 0 24 24" fill="${isFavorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.2" width="16" height="16">
                                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                                 </svg>
                             </button>
@@ -1129,7 +1437,7 @@
                         <h3 class="card-title">${escapeHtml(video.title)}</h3>
                         <div class="card-meta">
                             <span class="views">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                                     <circle cx="12" cy="12" r="3"/>
                                 </svg>
@@ -1149,10 +1457,10 @@
             const index = favorites.findIndex(item => item.id === id);
             if (index > -1) {
                 favorites.splice(index, 1);
-                showToast("Removed from favorites");
+                showToast("Removed from collection");
             } else {
                 favorites.push(video);
-                showToast("Added to favorites");
+                showToast("Added to your collection!");
             }
 
             saveJSON(FAVORITE_KEY, favorites);
@@ -1164,9 +1472,9 @@
             const grid = document.getElementById("favoriteGrid");
             if (!favorites.length) {
                 grid.innerHTML = `
-                    <div class="empty">
-                        <h3>No favorites yet</h3>
-                        <p>Tap the heart icon on a video to save it here.</p>
+                    <div class="loading-box">
+                        <h3>No saved videos</h3>
+                        <p style="color:var(--text-muted)">Click the heart button on videos to bookmark them.</p>
                     </div>`;
                 renderFavoriteCount();
                 return;
@@ -1186,9 +1494,7 @@
             const hash = window.location.hash;
             if (hash.startsWith('#video/')) {
                 const vId = hash.replace('#video/', '');
-                if (vId) {
-                    openDetail(vId);
-                }
+                if (vId) openDetail(vId);
             }
         }
 
@@ -1206,7 +1512,7 @@
                             embed: data.embed,
                             thumbnail: data.default_thumb.src,
                             duration: `${data.length_min}:${data.length_sec < 10 ? '0' + data.length_sec : data.length_sec}`,
-                            quality: "UltraHD",
+                            quality: "4K UHD",
                             views: data.views || 100,
                             description: data.keywords || data.title
                         };
@@ -1250,7 +1556,7 @@
 
         function renderRecommendations() {
             const grid = document.getElementById("recommendationGrid");
-            const list = videos.slice(0, 6);
+            const list = videos.slice(0, 8);
             grid.innerHTML = list.map(video => createCard(video)).join("");
         }
 
@@ -1271,7 +1577,6 @@
             document.getElementById("favoritesPage").style.display = "block";
 
             document.getElementById("discoverNav").classList.remove("active");
-            document.getElementById("favoriteNav").classList.active = false;
             document.getElementById("favoriteNav").classList.add("active");
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -1288,7 +1593,7 @@
 
         function copyToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => showToast("🔗 Link copied!"));
+                navigator.clipboard.writeText(text).then(() => showToast("⚡ Link copied to clipboard!"));
             } else {
                 const input = document.createElement('input');
                 input.value = text;
@@ -1296,7 +1601,7 @@
                 input.select();
                 document.execCommand('copy');
                 document.body.removeChild(input);
-                showToast("🔗 Link copied!");
+                showToast("⚡ Link copied to clipboard!");
             }
         }
 
@@ -1331,9 +1636,7 @@
         }
 
         function declineAge() {
-            const cardText = document.querySelector(".age-card p");
-            cardText.textContent = "Sorry, this content is only available to adults aged 18 and over.";
-            document.querySelector(".age-decline").style.display = "none";
+            alert("You must be 18 or older to access SrSorGyi.Site.");
         }
 
         function escapeHtml(value) {
@@ -1349,12 +1652,12 @@
     <script>
         function loadPopunder() {
             var s = document.createElement('script');
-            s.src = 'https://pl30991664.profitableratecpmnetwork.com/61/a5/12/61a512b6b768ede99ee6d476880c0b82.js';
+            s.src = 'https://pl31042228.profitableratecpmnetwork.com/06/be/9e/06be9e563111cf55b895529d59f179ff.js';
             document.body.appendChild(s);
         }
     </script>
 
     <!-- SOCIALBAR AD -->
-    <script src="https://pl30991666.profitableratecpmnetwork.com/5a/94/59/5a9459d325db9b3d875049800957df12.js"></script>
+    <script src="https://pl31042230.profitableratecpmnetwork.com/ab/5e/d6/ab5ed6a9e6e186715848963e6eda1647.js"></script>
 </body>
 </html>
