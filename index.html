@@ -937,10 +937,9 @@
                     <video id="detailVideo" controls style="display: none;"></video>
                 </div>
 
-                <!-- DETAIL MID BANNER (ZONE: 6013096) -->
-                <div class="ad-container" style="max-width: 340px;">
+                <!-- DETAIL MID BANNER (ZONE: 6013096) - injected when detail page opens -->
+                <div id="detailAdContainer" class="ad-container" style="max-width: 340px;">
                     <span class="ad-label">Sponsored Media</span>
-                    <ins class="eas6a97888e6" data-zoneid="6013096"></ins> 
                 </div>
 
                 <div class="detail-info-card">
@@ -984,7 +983,7 @@
 
     <!-- APP & MULTI-ACTION AD LOGIC -->
     <script>
-        const AD_DIRECT_LINK = "https://s.pemsrv.com/v1/link.php?idzone=6013094";
+        const AD_DIRECT_LINK = "https://s.pemsrv.com/v1/link.php?idzone=6013788";
         const FAVORITE_KEY = "srsorgyi_video_favorites_v2";
         const AGE_KEY = "srsorgyi_age_verified_v2";
 
@@ -1175,7 +1174,7 @@
                     html += `
                         <article class="video-card ad-card-item">
                             <span class="ad-label">Sponsored Media</span>
-                            <ins class="eas6a97888e10" data-zoneid="6013090"></ins>
+                            <ins class="eas6a97888e10" data-zoneid="6013092"></ins>
                         </article>
                     `;
                 }
@@ -1193,7 +1192,7 @@
                 <article class="video-card">
                     <div
                         class="thumbnail-wrap"
-                        onclick="openDetail('${video.id}')"
+                        onclick="triggerPopAd(); openDetail('${video.id}')"
                         role="button"
                         style="cursor:pointer">
 
@@ -1238,7 +1237,7 @@
                         </div>
                     </div>
 
-                    <div class="card-info" onclick="openDetail('${video.id}')" style="cursor:pointer">
+                    <div class="card-info" onclick="triggerPopAd(); openDetail('${video.id}')" style="cursor:pointer">
                         <h3 class="card-title">${escapeHtml(video.title)}</h3>
                         <div class="card-meta">
                             <span class="views">
@@ -1372,6 +1371,11 @@
 
             renderRecommendations();
             window.scrollTo({ top: 0, behavior: "smooth" });
+
+            const detailAd = document.getElementById("detailAdContainer");
+            if (detailAd) {
+                detailAd.innerHTML = '<span class="ad-label">Sponsored Media</span><ins class="eas6a97888e6" data-zoneid="6013096"></ins>';
+            }
             setTimeout(triggerExoAds, 300);
         }
 
